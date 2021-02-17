@@ -58,11 +58,15 @@ public class ZiOSPostProcessBuild
         string targetGuid = pBXProject.GetUnityMainTargetGuid();
         string projectGuid = pBXProject.ProjectGuid();
 
-        pBXProject.AddBuildProperty(projectGuid, "OTHER_LDFLAGS", "-ObjC -all_load -licucore");
-        pBXProject.SetBuildProperty(projectGuid, "ENABLE_BITCODE", "NO");
         List<string> resources = new List<string>();
-        CopyAndReplaceDirectory("Assets/Plugins/iOS/resources", Path.Combine(path, "resources"), resourceExts);
-        GetDirFileList("Assets/Plugins/iOS/resources", ref resources, resourceExts, "resources");
+        //CopyAndReplaceDirectory("Assets/Plugins/iOS/resources", Path.Combine(path, "resources"), resourceExts);
+        //GetDirFileList("Assets/Plugins/iOS/resources", ref resources, resourceExts, "resources");
+
+        var targetPath = Path.GetDirectoryName(Application.dataPath) + @"/TestResource";
+
+        CopyAndReplaceDirectory(targetPath, Path.Combine(path, "TestResource"), resourceExts);
+        GetDirFileList(targetPath, ref resources, resourceExts, "TestResource");
+
         foreach (string resource in resources)
         {
             Debug.Log(resource);
