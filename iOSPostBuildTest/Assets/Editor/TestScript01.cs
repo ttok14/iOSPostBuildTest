@@ -45,5 +45,9 @@ public class ZiOSPostProcessBuild
 
         UnityEngine.Debug.LogError("ConfigDir : " + configDir);
         Debug.LogError("AddFilePath : " + addFilePath);
+
+        string resourcesBuildPhase = proj.GetResourcesBuildPhaseByTarget(target);
+
+        UnityEngine.Debug.LogError("resourcesBuildPhase : " + resourcesBuildPhase);
     }
 }
