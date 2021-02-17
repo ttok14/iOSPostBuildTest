@@ -41,10 +41,7 @@ public class ZiOSPostProcessBuild
         pcm.WriteToFile();
 
         string configDir = Path.GetDirectoryName(Application.dataPath) + @"\TestResource";
-        var addFilePath = new string[]
-        {
-            configDir + @"\fileA.png",
-        };
+        var addFilePath = configDir + @"\fileA.png";
 
         UnityEngine.Debug.LogError("ConfigDir : " + configDir);
         Debug.LogError("AddFilePath : " + addFilePath);
